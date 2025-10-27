@@ -1,0 +1,6 @@
+node_modules/
+coverages/
+drizzle/
+logs/
+*.log
+pacakge-lock.json
