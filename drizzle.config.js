@@ -3,7 +3,9 @@ export default {
   schema: './src/models/*.js',
   out: './drizzle',
   dialect: 'postgresql',
-  dbCreds:{
-    url:process.env.DATABASE_URL
-  }
+  // drizzle-kit expects a `dbCredentials` property (not `dbCreds`).
+  // Provide the connection URL via env var DATABASE_URL.
+  dbCredentials: {
+    url: process.env.DATABASE_URL,
+  },
 };
