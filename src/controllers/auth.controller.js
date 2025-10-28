@@ -1,7 +1,6 @@
-import { log } from 'winston';
-import { formatValidationError } from '#utils/format.js';
+import { formatValidationErrors } from '#utils/format.js';
 import logger from '#utils/logger.js';
-import { signupSchema } from '#schemas/auth.schema.js';
+import { signupSchema } from '#validations/auth.validation.js';
 
 export const signup = async (req, res, next) => {
   try {
@@ -9,7 +8,7 @@ export const signup = async (req, res, next) => {
     if (!validationResult.success) {
       return res.status(400).json({
         error: 'Validation failed',
-        details: formatValidationError(validationResult.error),
+        details: formatValidationErrors(validationResult.error),
       });
     }
     const { username, email, role } = validationResult.data;
@@ -20,11 +19,11 @@ export const signup = async (req, res, next) => {
         id: 1,
         username,
         email,
-        role, 
+        role,
       },
     });
   } catch (error) {
-    log.error('Signup Error:', error);
+    logger.error('Signup Error:', error);
     if (error.message === 'User with this email already exists') {
       return res.status(409).json({ error_mes: 'User already exists' });
     }
