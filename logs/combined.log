@@ -1,0 +1,21 @@
+2025-10-28T06:40:44.613Z info: Hello from Acquisitions! {"service":"acquisitions-api"}
+2025-10-28T06:40:44.622Z info: ::1 - - [28/Oct/2025:06:40:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" {"service":"acquisitions-api"}
+2025-10-28T06:40:44.760Z info: ::1 - - [28/Oct/2025:06:40:44 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" {"service":"acquisitions-api"}
+2025-10-28T06:53:59.419Z info: ::1 - - [28/Oct/2025:06:53:59 +0000] "POST /get HTTP/1.1" 404 143 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:54:06.378Z info: ::1 - - [28/Oct/2025:06:54:06 +0000] "POST /health HTTP/1.1" 404 146 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:54:12.207Z info: ::1 - - [28/Oct/2025:06:54:12 +0000] "GET /health HTTP/1.1" 200 73 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:54:26.483Z info: ::1 - - [28/Oct/2025:06:54:26 +0000] "GET /api HTTP/1.1" 404 142 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:55:16.993Z info: Hello from Acquisitions! {"service":"acquisitions-api"}
+2025-10-28T06:55:17.001Z info: ::1 - - [28/Oct/2025:06:55:17 +0000] "GET / HTTP/1.1" 200 23 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:55:24.727Z info: ::1 - - [28/Oct/2025:06:55:24 +0000] "GET /API HTTP/1.1" 404 142 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:55:28.865Z info: ::1 - - [28/Oct/2025:06:55:28 +0000] "GET /api HTTP/1.1" 404 142 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:56:39.502Z info: ::1 - - [28/Oct/2025:06:56:39 +0000] "POST /api/auth/register HTTP/1.1" 201 43 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:56:46.703Z info: ::1 - - [28/Oct/2025:06:56:46 +0000] "POST /api/auth/login HTTP/1.1" 200 40 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:56:52.360Z info: ::1 - - [28/Oct/2025:06:56:52 +0000] "POST /api/auth/logout HTTP/1.1" 404 155 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:56:57.295Z info: ::1 - - [28/Oct/2025:06:56:57 +0000] "POST /api/auth/sign-out HTTP/1.1" 404 157 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:57:16.487Z info: ::1 - - [28/Oct/2025:06:57:16 +0000] "POST /api/auth/logout HTTP/1.1" 404 155 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:57:46.171Z info: ::1 - - [28/Oct/2025:06:57:46 +0000] "POST /api/auth/login HTTP/1.1" 200 40 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T06:57:58.863Z info: ::1 - - [28/Oct/2025:06:57:58 +0000] "POST /api/auth/register HTTP/1.1" 201 43 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T07:10:07.403Z info: ::1 - - [28/Oct/2025:07:10:07 +0000] "POST /api/auth/register HTTP/1.1" 201 32 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T07:10:15.610Z info: ::1 - - [28/Oct/2025:07:10:15 +0000] "POST /api/auth/logout HTTP/1.1" 200 17 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}
+2025-10-28T07:10:18.526Z info: ::1 - - [28/Oct/2025:07:10:18 +0000] "POST /api/auth/login HTTP/1.1" 200 16 "-" "PostmanRuntime/7.44.1" {"service":"acquisitions-api"}

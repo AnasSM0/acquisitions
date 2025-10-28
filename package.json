@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "imports": {
+    "#config/*": "./src/config/*",
+    "#db/*": "./src/db/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#controllers/*": "./src/controllers/*",
+    "#utils/*": "./src/utils/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#services/*": "./src/services/*",
+    "#logger": "./src/config/logger.js"
+  },
   "scripts": {
     "dev": "node --watch src/index.js",
     "lint": "eslint .",
@@ -21,7 +32,8 @@
     "@neondatabase/serverless": "^1.0.2",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.7",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.5"
