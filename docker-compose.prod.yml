@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Application container for production
+  app:
+    build:
+      context: .
+      target: production
+      dockerfile: Dockerfile
+    container_name: acquisitions-app-prod
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'wget',
+          '--quiet',
+          '--tries=1',
+          '--spider',
+          'http://localhost:3000/health',
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+networks:
+  app-network:
+    driver: bridge

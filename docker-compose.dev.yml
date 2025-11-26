@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # Neon Local - PostgreSQL proxy for development
+  neon-local:
+    image: neondatabase/neon-proxy:latest
+    container_name: neon-local
+    environment:
+      # Neon Local creates ephemeral branches automatically
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: acquisitions_dev
+    ports:
+      - '5432:5432'
+    volumes:
+      - neon_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  # Application container for development
+  app:
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+    container_name: acquisitions-app-dev
+    env_file:
+      - .env.development
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://postgres:postgres@neon-local:5432/acquisitions_dev
+    ports:
+      - '3000:3000'
+    volumes:
+      # Mount source code for hot-reload
+      - .:/app
+      - /app/node_modules
+      # Mount logs directory
+      - ./logs:/app/logs
+    depends_on:
+      neon-local:
+        condition: service_healthy
+    networks:
+      - app-network
+    command: npm run dev
+
+volumes:
+  neon_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

@@ -63,3 +63,6 @@
 2025-11-26T06:37:15.563Z info: User created with ID: 1 {"service":"acquisitions-api"}
 2025-11-26T06:37:15.569Z info: Signing up user: anas@gmail.com {"service":"acquisitions-api"}
 2025-11-26T06:37:15.573Z info: ::1 - - [26/Nov/2025:06:37:15 +0000] "POST /api/auth/sign-up HTTP/1.1" 201 118 "-" "PostmanRuntime/7.49.0" {"service":"acquisitions-api"}
+2025-11-26T07:42:44.409Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
+2025-11-26T07:42:47.299Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
+2025-11-26T07:42:48.469Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
