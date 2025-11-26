@@ -8,6 +8,13 @@
       "when": 1761575292158,
       "tag": "0000_minor_blindfold",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764139010163,
+      "tag": "0001_chief_captain_midlands",
+      "breakpoints": true
     }
   ]
 }
