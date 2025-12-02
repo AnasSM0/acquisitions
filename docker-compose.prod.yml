@@ -8,7 +8,7 @@ services:
       target: production
       dockerfile: Dockerfile
     container_name: acquisitions-app-prod
-    env_file:
+    env_file: 
       - .env.production
     environment:
       NODE_ENV: production

@@ -2,7 +2,7 @@ import { formatValidationErrors } from '#utils/format.js';
 import logger from '#utils/logger.js';
 import { cookies } from '#utils/cookies.js';
 import { jwtToken } from '#utils/jwt.js';
-import { signupSchema } from '#validations/auth.validation.js';
+import { signupSchema } from '../validations/auth.validation.js';
 import { createUser } from '#services/auth.service.js';
 
 export const signup = async (req, res, next) => {

@@ -5,11 +5,8 @@ services:
   neon-local:
     image: neondatabase/neon-proxy:latest
     container_name: neon-local
-    environment:
-      # Neon Local creates ephemeral branches automatically
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: acquisitions_dev
+    env_file:
+      - .env.development
     ports:
       - '5432:5432'
     volumes:
@@ -31,9 +28,6 @@ services:
     container_name: acquisitions-app-dev
     env_file:
       - .env.development
-    environment:
-      NODE_ENV: development
-      DATABASE_URL: postgres://postgres:postgres@neon-local:5432/acquisitions_dev
     ports:
       - '3000:3000'
     volumes:

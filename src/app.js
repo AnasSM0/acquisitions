@@ -7,8 +7,10 @@ import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.routes.js';
 //import { timestamp } from 'drizzle-orm/gel-core';
 import securityMiddleware from './middleware/security.middleware.js';
+import userRoutes from './routes/user.routes.js';
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
@@ -23,7 +25,6 @@ app.use(
     },
   })
 );
-
 
 const port = process.env.PORT || 3000;
 
@@ -51,5 +52,9 @@ app.get('/health', (req, res) => {
 app.get('api', (req, res) => {
   res.status(200).send('Acquisitions API is running');
 });
+
+app.use('/api/auth', authRoutes);
+// eslint-disable-next-line no-undef
+app.use('/api/users', userRoutes);
 
 export default app;
