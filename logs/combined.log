@@ -66,3 +66,7 @@
 2025-11-26T07:42:44.409Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
 2025-11-26T07:42:47.299Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
 2025-11-26T07:42:48.469Z warn: Bot detected: {"service":"acquisitions-api","ip":"::1","userAgent":"PostmanRuntime/7.49.0","path":"/health"}
+2025-12-02T07:40:50.737Z error: Error creating user: Error: Failed query: select "id", "username", "email", "password", "role", "created_at", "updated_at" from "users" where "users"."email" = $1 limit $2
+params: anas12@gmail.com,1 {"service":"acquisitions-api"}
+2025-12-02T07:40:50.741Z error: Signup Error: Error creating user {"service":"acquisitions-api","stack":"Error: Error creating user\n    at createUser (file:///app/src/services/auth.service.js:51:11)\n    at async signup (file:///app/src/controllers/auth.controller.js:22:18)"}
+2025-12-02T07:40:50.745Z info: ::ffff:172.19.0.1 - - [02/Dec/2025:07:40:50 +0000] "POST /api/auth/sign-up HTTP/1.1" 500 321 "-" "PostmanRuntime/7.49.1" {"service":"acquisitions-api"}

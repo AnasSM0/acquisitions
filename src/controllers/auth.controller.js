@@ -33,7 +33,7 @@ export const signup = async (req, res, next) => {
     res.status(201).json({
       message: 'User signed up successfully',
       user: {
-        id: 1,
+        id: user.id,
         username,
         email,
         role,
@@ -42,7 +42,7 @@ export const signup = async (req, res, next) => {
   } catch (error) {
     logger.error('Signup Error:', error);
     if (error.message === 'User with this email already exists') {
-      return res.status(409).json({ error_mes: 'User already exists' });
+      return res.status(409).json({ error: 'User already exists' });
     }
     next(error);
   }

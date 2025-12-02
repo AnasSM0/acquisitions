@@ -1,7 +1,8 @@
 export const cookies = {
   getOptions: () => ({
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    //secure: process.env.NODE_ENV === 'production',
+    secure: false,
     sameSite: 'strict',
     maxAge: 3600000, // 1 hour
   }),

@@ -16,8 +16,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(securityMiddleware);
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(securityMiddleware);
+}
 app.use(
   morgan('combined', {
     stream: {

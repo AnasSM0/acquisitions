@@ -5,12 +5,14 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
 ## 🏗️ Architecture Overview
 
 ### Development Environment
+
 - **Neon Local**: PostgreSQL proxy running in Docker for local development
 - **Hot Reload**: Source code mounted as volume for instant updates
 - **Database**: Ephemeral Neon branches for testing and development
 - **Connection**: `postgres://postgres:postgres@neon-local:5432/acquisitions_dev`
 
 ### Production Environment
+
 - **Neon Cloud**: Managed PostgreSQL database on Neon's infrastructure
 - **Optimized Build**: Multi-stage Docker build for minimal image size
 - **Security**: Non-root user, health checks, and proper logging
@@ -28,24 +30,27 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
 ### Development Setup (with Neon Local)
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd acquisitions
    ```
 
 2. **Configure environment variables**
-   
+
    The `.env.development` file is already configured for Neon Local:
+
    ```bash
    # Review the file
    cat .env.development
    ```
 
 3. **Start the development environment**
+
    ```bash
    npm run docker:dev
    ```
-   
+
    This command will:
    - Build the application Docker image
    - Start Neon Local PostgreSQL proxy
@@ -53,8 +58,9 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
    - Create necessary networks and volumes
 
 4. **Run database migrations**
-   
+
    Once containers are running, execute migrations:
+
    ```bash
    docker-compose -f docker-compose.dev.yml exec app npm run db:generate
    docker-compose -f docker-compose.dev.yml exec app npm run db:migrate
@@ -66,6 +72,7 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
    - Database: localhost:5432 (accessible from host machine)
 
 6. **View logs**
+
    ```bash
    npm run docker:logs
    ```
@@ -78,15 +85,15 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
 ### Production Setup (with Neon Cloud)
 
 1. **Get your Neon Cloud connection string**
-   
    - Go to [Neon Console](https://console.neon.tech)
    - Create a new project or use existing one
    - Copy the connection string from the dashboard
    - It should look like: `postgres://user:password@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require`
 
 2. **Configure production environment**
-   
+
    Edit `.env.production` and add your credentials:
+
    ```bash
    NODE_ENV=production
    PORT=3000
@@ -99,16 +106,19 @@ A Node.js application with Express, Drizzle ORM, and Neon Database, fully contai
    **⚠️ IMPORTANT**: Never commit `.env.production` with real credentials!
 
 3. **Build and run production containers**
+
    ```bash
    npm run docker:prod
    ```
 
 4. **Run database migrations in production**
+
    ```bash
    docker-compose -f docker-compose.prod.yml exec app npm run db:migrate
    ```
 
 5. **Verify deployment**
+
    ```bash
    curl http://localhost:3000/health
    ```
@@ -148,12 +158,14 @@ acquisitions/
 ## 🛠️ Available Scripts
 
 ### Local Development (without Docker)
+
 ```bash
 npm run dev              # Start app with hot-reload
 npm run start            # Start app in production mode
 ```
 
 ### Docker Development
+
 ```bash
 npm run docker:dev       # Start dev environment with Neon Local
 npm run docker:dev:down  # Stop and remove dev containers
@@ -161,6 +173,7 @@ npm run docker:logs      # View logs from all containers
 ```
 
 ### Docker Production
+
 ```bash
 npm run docker:prod      # Start production environment
 npm run docker:prod:down # Stop production containers
@@ -168,6 +181,7 @@ npm run docker:build     # Build Docker image manually
 ```
 
 ### Database
+
 ```bash
 npm run db:generate      # Generate Drizzle migrations
 npm run db:migrate       # Run pending migrations
@@ -175,6 +189,7 @@ npm run db:studio        # Open Drizzle Studio UI
 ```
 
 ### Code Quality
+
 ```bash
 npm run lint             # Check code with ESLint
 npm run lint:fix         # Fix ESLint issues
@@ -185,6 +200,7 @@ npm run format:check     # Check formatting
 ## 🔧 Environment Variables
 
 ### Development (.env.development)
+
 ```env
 NODE_ENV=development
 PORT=3000
@@ -195,6 +211,7 @@ LOG_LEVEL=debug
 ```
 
 ### Production (.env.production)
+
 ```env
 NODE_ENV=production
 PORT=3000
@@ -252,6 +269,7 @@ The Dockerfile uses multiple stages for optimization:
 ### Database Connection Issues
 
 **Development:**
+
 ```bash
 # Check if Neon Local is healthy
 docker-compose -f docker-compose.dev.yml ps
@@ -266,6 +284,7 @@ nc -zv neon-local 5432
 ```
 
 **Production:**
+
 ```bash
 # Verify DATABASE_URL in .env.production
 # Ensure SSL mode is enabled: ?sslmode=require
